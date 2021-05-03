@@ -18,7 +18,14 @@
             console.log('Se perdió la comunicación con el servidor');
         });
 
-        socket.emit('mensaje', {nombre: 'Juan Carlos'});
+        socket.on('emitir-mensaje', function(payload) {
+            console.log('Escuchando:', payload);
+        });
+
+        socket.on('active-bands', function(bands){
+            console.clear();
+            console.table(bands);
+        });
     </script>
 </body>
 </html>
